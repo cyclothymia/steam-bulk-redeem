@@ -50,7 +50,7 @@ def main():
     
     sessionID = session.session.cookies.get_dict()["sessionid"]
     keys = []
-    filename = input(b.OKPURP + "Enter the filename containing the keys with .txt at the end: " + b.ENDC)
+    filename = input(b.OKPURP + "Enter the path for the textfile with codes: " + b.ENDC)
     f = open(filename)
     for line in f:
         keys.append(line)
