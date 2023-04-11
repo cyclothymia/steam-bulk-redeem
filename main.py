@@ -31,15 +31,15 @@ def main():
         session.login()
     except wa.CaptchaRequired:
         print(session.captcha_url)
-        captcha = input(b.WARNING + "Please follow the captcha url and enter the code: " + b.ENDC)
+        captcha = pwinput.pwinput(prompt=b.WARNING + "Please follow the captcha url and enter the code: " + b.ENDC, mask='*')
         session.login(captcha=captcha)
         logged_in = True
     except wa.EmailCodeRequired:
-        code = input(b.WARNING + "Please enter the emailed 2FA code: " + b.ENDC)
+        code = pwinput.pwinput(prompt=b.WARNING + "Please enter the emailed 2FA code: " + b.ENDC, mask='*')
         session.login(email_code=code)
         logged_in = True
     except wa.TwoFactorCodeRequired:
-        code = input(b.WARNING + "Please enter the 2FA code from the Steam app: " + b.ENDC)
+        code = pwinput.pwinput(prompt=b.WARNING + "Please enter the 2FA code from the Steam app: " + b.ENDC, mask='*')
         session.login(twofactor_code=code)
         logged_in = True
     
